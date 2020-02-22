@@ -16,8 +16,6 @@
 
 .white {
   color: #ffffff;
-  text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000,
-  0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
 }
 
 .brass {
@@ -38,4 +36,9 @@
 
 .silver {
   color: #C0C0C0;
+}
+
+.shadow {
+  text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000,
+  0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
 }

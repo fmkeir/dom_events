@@ -24,10 +24,18 @@ const handleFormSubmit = (input, list) => {
   } else {
   description.textContent = `${input.size.value} ${input.colour.value} Dragon`
   }
+  colourDragonDescription(input.colour.value, description)
   newListItem.appendChild(name);
   newListItem.appendChild(description);
   list.insertBefore(newListItem, list.childNodes[0]);
 };
+
+const colourDragonDescription = (colour, element) => {
+  element.classList.add(`${colour.toLowerCase()}`);
+  if (colour.toLowerCase() !== "black") {
+    element.classList.add('shadow');
+  }
+}
 
 const handleDeleteClick = (list) => {
   list.textContent = '';
