@@ -12,13 +12,14 @@ const handleButtonClick = (input, list) => {
   event.preventDefault();
   const newListItem = document.createElement('li');
   const name = document.createElement('h2');
-  const colour = document.createElement('h3');
-  const size = document.createElement('h4');
+  const description = document.createElement('h3');
   name.textContent = `${input.name.value}`;
-  colour.textContent = `${input.colour.value}`;
-  size.textContent = `${input.size.value}`;
+  if (input.size.value === "Wyrmling") {
+    description.textContent = `${input.colour.value} Dragon ${input.size.value}`
+  } else {
+  description.textContent = `${input.size.value} ${input.colour.value} Dragon`
+  }
   newListItem.appendChild(name);
-  newListItem.appendChild(colour);
-  newListItem.appendChild(size);
+  newListItem.appendChild(description);
   list.appendChild(newListItem);
 }
