@@ -21,5 +21,5 @@ const handleButtonClick = (input, list) => {
   }
   newListItem.appendChild(name);
   newListItem.appendChild(description);
-  list.appendChild(newListItem);
+  list.insertBefore(newListItem, list.childNodes[0]);
 }
