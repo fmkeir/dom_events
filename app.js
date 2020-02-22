@@ -2,13 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#dragonForm');
   const submit = document.querySelector('#submit');
   const list = document.querySelector('#dragonList');
+  const deleteAll = document.querySelector('#deleteAll')
 
   submit.addEventListener('click', () => {
-    handleButtonClick(form, list);
+    handleFormSubmit(form, list);
   });
+
+  deleteAll.addEventListener('click', () => {
+    handleDeleteClick(list)
+  })
 });
 
-const handleButtonClick = (input, list) => {
+const handleFormSubmit = (input, list) => {
   event.preventDefault();
   const newListItem = document.createElement('li');
   const name = document.createElement('h2');
@@ -22,4 +27,8 @@ const handleButtonClick = (input, list) => {
   newListItem.appendChild(name);
   newListItem.appendChild(description);
   list.insertBefore(newListItem, list.childNodes[0]);
+};
+
+const handleDeleteClick = (list) => {
+  list.textContent = '';
 }
