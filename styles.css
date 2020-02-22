@@ -1,0 +1,41 @@
+.black {
+  color: #000000;
+}
+
+.blue {
+  color: #3333ff;
+}
+
+.green {
+  color: #00cc00;
+}
+
+.red {
+  color: #ff1a1a;
+}
+
+.white {
+  color: #ffffff;
+  text-shadow: 2px 0 0 #000000, -2px 0 0 #000000, 0 2px 0 #000000,
+  0 -2px 0 #000000, 1px 1px #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
+}
+
+.brass {
+  color: #b5a642;
+}
+
+.bronze {
+  color: #cd7f32;
+}
+
+.copper {
+  color: #b87333;
+}
+
+.gold {
+  color: #FFD700;
+}
+
+.silver {
+  color: #C0C0C0;
+}
