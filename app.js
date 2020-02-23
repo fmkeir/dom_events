@@ -30,10 +30,28 @@ const handleFormSubmit = (input, list) => {
   list.insertBefore(newListItem, list.childNodes[0]);
 };
 
+const generateElement = (container, tag, content, classes=[]) => {
+  const element = document.createElement(tag);
+  element.textcontent = content;
+
+  classes.forEach((className) => {
+   element.classList.add(className);
+  });
+
+  container.appendChild(element);
+}
+
 const colourDragonDescription = (colour, element) => {
-  element.classList.add(`${colour.toLowerCase()}`);
-  if (colour.toLowerCase() !== "black") {
+  let colours = [
+    "black", "blue", "green", "red", "white",
+    "brass", "bronze", "copper", "gold", "silver"]
+
+  if (colours.includes(colour)) {
+    element.classList.add(`${colour.toLowerCase()}`);
     element.classList.add('shadow');
+  }
+  if (colour === "black") {
+    element.classList.add(`${colour.toLowerCase()}`);
   }
 }
 
