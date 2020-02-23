@@ -17,25 +17,16 @@ const handleFormSubmit = (input, list) => {
   event.preventDefault();
 
   const newListItem = document.createElement('li');
-  const name = document.createElement('h2');
-  const description = document.createElement('h3');
-  name.textContent = `${input.name.value}`;
-
-  if (input.size.value === "Wyrmling") {
-    description.textContent = `${input.colour.value} Dragon ${input.size.value}`
-  } else {
-  description.textContent = `${input.size.value} ${input.colour.value} Dragon`
-  }
-
-  colourDragonDescription(input.colour.value, description)
-  newListItem.appendChild(name);
-  newListItem.appendChild(description);
   list.insertBefore(newListItem, list.childNodes[0]);
+
+  generateElement(newListItem, 'h2', input.name.value)
+  generateElement(newListItem, 'h3', createDragonDescription(input.colour.value, input.size.value))
+  colourDragonDescription(input.colour.value, document.querySelector('h3'))
 };
 
 const generateElement = (container, tag, content, classes=[]) => {
   const element = document.createElement(tag);
-  element.textcontent = content;
+  element.textContent = content;
 
   classes.forEach((className) => {
    element.classList.add(className);
@@ -44,7 +35,17 @@ const generateElement = (container, tag, content, classes=[]) => {
   container.appendChild(element);
 }
 
+const createDragonDescription = (colour, size) => {
+  if (size === "Wyrmling") {
+    content = `${colour} Dragon ${size}`
+  } else {
+  content  = `${size} ${colour} Dragon`
+  }
+  return content
+}
+
 const colourDragonDescription = (colour, element) => {
+  console.log(element);
   let colours = [
     "black", "blue", "green", "red", "white",
     "brass", "bronze", "copper", "gold", "silver"]
