@@ -49,13 +49,14 @@ const createDragonDescription = (colour, size) => {
 };
 
 const colourDragonDescription = (colour, element) => {
+  let checkColour = colour.toLowerCase()
   let colours = [
     "black", "blue", "green", "red", "white",
     "brass", "bronze", "copper", "gold", "silver"];
 
-  if (colours.includes(colour)) {
-    element.classList.add(`${colour.toLowerCase()}`);
-    if (colour !== "black") {
+  if (colours.includes(checkColour)) {
+    element.classList.add(`${checkColour.toLowerCase()}`);
+    if (checkColour !== "black") {
       element.classList.add('shadow');
     }
   }
