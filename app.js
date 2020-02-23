@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#dragonForm');
   const submit = document.querySelector('#submit');
   const list = document.querySelector('#dragonList');
-  const deleteAll = document.querySelector('#deleteAll')
+  const deleteAll = document.querySelector('#deleteAll');
 
   submit.addEventListener('click', () => {
     handleFormSubmit(form, list);
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   deleteAll.addEventListener('click', () => {
     handleDeleteClick(list)
-  })
+  });
 });
 
 const handleFormSubmit = (input, list) => {
@@ -19,9 +19,13 @@ const handleFormSubmit = (input, list) => {
   const newListItem = document.createElement('li');
   list.insertBefore(newListItem, list.childNodes[0]);
 
-  generateElement(newListItem, 'h2', input.name.value)
-  generateElement(newListItem, 'h3', createDragonDescription(input.colour.value, input.size.value))
-  colourDragonDescription(input.colour.value, document.querySelector('h3'))
+  generateElement(newListItem, 'h2', input.name.value);
+  generateElement(
+    newListItem,
+    'h3',
+    createDragonDescription(input.colour.value, input.size.value)
+  );
+  colourDragonDescription(input.colour.value, document.querySelector('h3'));
 };
 
 const generateElement = (container, tag, content, classes=[]) => {
@@ -37,18 +41,17 @@ const generateElement = (container, tag, content, classes=[]) => {
 
 const createDragonDescription = (colour, size) => {
   if (size === "Wyrmling") {
-    content = `${colour} Dragon ${size}`
+    content = `${colour} Dragon ${size}`;
   } else {
-  content  = `${size} ${colour} Dragon`
+  content  = `${size} ${colour} Dragon`;
   }
-  return content
-}
+  return content;
+};
 
 const colourDragonDescription = (colour, element) => {
-  console.log(element);
   let colours = [
     "black", "blue", "green", "red", "white",
-    "brass", "bronze", "copper", "gold", "silver"]
+    "brass", "bronze", "copper", "gold", "silver"];
 
   if (colours.includes(colour)) {
     element.classList.add(`${colour.toLowerCase()}`);
@@ -56,8 +59,8 @@ const colourDragonDescription = (colour, element) => {
       element.classList.add('shadow');
     }
   }
-}
+};
 
 const handleDeleteClick = (list) => {
   list.textContent = '';
-}
+};
