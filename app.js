@@ -15,15 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const handleFormSubmit = (input, list) => {
   event.preventDefault();
+
   const newListItem = document.createElement('li');
   const name = document.createElement('h2');
   const description = document.createElement('h3');
   name.textContent = `${input.name.value}`;
+
   if (input.size.value === "Wyrmling") {
     description.textContent = `${input.colour.value} Dragon ${input.size.value}`
   } else {
   description.textContent = `${input.size.value} ${input.colour.value} Dragon`
   }
+
   colourDragonDescription(input.colour.value, description)
   newListItem.appendChild(name);
   newListItem.appendChild(description);
@@ -48,10 +51,9 @@ const colourDragonDescription = (colour, element) => {
 
   if (colours.includes(colour)) {
     element.classList.add(`${colour.toLowerCase()}`);
-    element.classList.add('shadow');
-  }
-  if (colour === "black") {
-    element.classList.add(`${colour.toLowerCase()}`);
+    if (colour !== "black") {
+      element.classList.add('shadow');
+    }
   }
 }
 
